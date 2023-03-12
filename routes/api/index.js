@@ -8,6 +8,6 @@ import { thoughtRoutes } from "./thoughtRoutes.js";
 
 const router = new Router();
 router.use("/users",userRoutes);
-router.use("/thought",thoughtRoutes);
+router.use("/thoughts",thoughtRoutes);
 
-export {router}
+export {router};
