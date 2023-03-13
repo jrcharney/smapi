@@ -42,4 +42,4 @@ const reactionSchema = new Schema({
 });
 
 // We only need to export the reactionSchema
-export default reactionSchema;
+export { reactionSchema };

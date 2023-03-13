@@ -2,7 +2,8 @@
  * @file config/conn.js
  * @desc Set up the Mongoose/MongoDB connection
  */
-import {connect, connection} from "mongoose";
+//import {connect, connection} from "mongoose";
+import mongoose from "mongoose";
 import process from "process";
 import * as dotenv from "dotenv";
 
@@ -15,9 +16,11 @@ const DB_PROTOCOL = process.env.DB_PROTOCOL || "mongodb";
 const DB_URI      = process.env.DB_URI      || `${DB_PROTOCOL}://${DB_SITE}:${DB_PORT}/${DB_APP}`;
 
 // "mongodb://localhost:${DB_PORT}/smapi"
-connect(DB_URI,{
+mongoose.connect(DB_URI,{
     useNewURLParser: true,
     useUnifiedTopology: true,
 });
 
-export {connection};
+const Connection = mongoose.connection;
+
+export { Connection as db};

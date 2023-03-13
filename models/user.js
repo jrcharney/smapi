@@ -21,13 +21,13 @@ const userSchema = new Schema({
     thoughts: [
         {
             type: Schema.Types.ObjectId,
-            ref: "thought"
+            ref: "Thought"
         }
     ],
     friends: [
         {
             type: Schema.Types.ObjectId,
-            ref: "user"
+            ref: "User"
         }
     ]
 },{
@@ -40,11 +40,11 @@ const userSchema = new Schema({
 
 // Create a virtual named `friendCount` that returns the length of the user's array of friends.
 // NOTE: We can't use the Arrow syntax here because we need to use `this`.
-userSchema.virtual().get(function(){
+userSchema.virtual("friendCount").get(function(){
     return this.friends.length;
 });
 
 // Use `mongoose.model` to create a model `user` based on our `userSchema`.
-const User = model("user", userSchema);
+const User = model("User", userSchema);
 
-export default User;
+export default {User};

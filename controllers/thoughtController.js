@@ -3,7 +3,7 @@
  * @desc Controller for Thought model
  * "We don't need no thought control!" :3
  */
-import { User, Thought } from "../models";
+import { User, Thought } from "../models/index.js";
 
 const thoughtController = {
     /**

@@ -3,7 +3,7 @@
  * @desc controller for the User model
  * TODO: Think about creating a friendSchema
  */
-import { User, Thought } from "../models";
+import { User, Thought } from "../models/index.js";
 
 const userController = {
     /**
@@ -30,7 +30,7 @@ const userController = {
      */
     getSingleUser(req,res){
         User.findOne({ _id: req.params.userId })
-            .populate("thoghts")
+            .populate("thoughts")
             .populate("friends")
             .select("-__v")
             .then((user) => {

@@ -2,9 +2,9 @@
  * @file server.js
  * @desc entry point of this assignment
  */
-import { express } from "express";
+import express from "express";
 import {db} from "./config/conn.js";
-import { routes } from "./routes";
+import {routes} from "./routes/index.js";
 import process from "process";
 import * as dotenv from "dotenv";
 

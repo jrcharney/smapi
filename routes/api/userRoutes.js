@@ -3,7 +3,11 @@
  * @desc User routes for the userController
  */
 import { Router } from "express";
-import {
+import userController from "../../controllers/userController.js"
+
+const router = new Router();
+
+const {
     getUsers,
     getSingleUser,
     createUser,
@@ -11,9 +15,7 @@ import {
     deleteUser,
     addFriend,
     removeFriend
-} from "../../controllers/userController.js";
-
-const router = new Router();
+} = userController;
 
 /**
  * @path "/api/users"
@@ -40,8 +42,8 @@ router.route("/:userId")
  * @post   addFriend    - create a new friend
  * @delete removeFriend - delete a friend
  */
-router.router("/:userId/friends/:friendId")
+router.route("/:userId/friends/:friendId")
       .post(addFriend)
       .delete(removeFriend);
 
-export {router};
+export {router as userRoutes};

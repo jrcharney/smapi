@@ -3,17 +3,20 @@
  * @desc Thought and Reaction routes for the thoughtController
  */
 import { Router } from "express";
-import {
-    getThought,
+import thoughtController from "../../controllers/thoughtController.js";
+
+const router = new Router();
+
+const {
+    getThoughts,
     getSingleThought,
     createThought,
     updateThought,
     deleteThought,
     addReaction,
     removeReaction
-} from "../../controllers/thoughtController.js";
+} = thoughtController;
 
-const router = new Router();
 
 /**
  * @path "/api/thoughts"
@@ -21,7 +24,7 @@ const router = new Router();
  * @post createThought - create a new thought
  */
 router.route("/")
-      .get(getThought)
+      .get(getThoughts)
       .post(createThought);
 
 /**
@@ -49,4 +52,4 @@ router.route("/:thoughtId/reactions")
 router.route("/:thoughtId/reactions/:reactionId")
       .delete(removeReaction);
 
-export { router };
+export {router as thoughtRoutes};

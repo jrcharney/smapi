@@ -40,11 +40,11 @@ const thoughtSchema = new Schema({
 
 // Create a virtual named `reactionCount` that returns the length of the thought's array of reactions.
 // NOTE: We can't use the Arrow syntax here because we need to use `this`.
-thoughtSchema.virtual().get(function(){
+thoughtSchema.virtual("reactionCount").get(function(){
     return this.reactions.length;
 });
 
 // Use `mongoose.model` to create a model `user` based on our `userSchema`.
-const Thought = model("thought",thoughtSchema);
+const Thought = model("Thought",thoughtSchema);
 
-export default Thought;
+export default {Thought};
